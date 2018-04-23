@@ -32,5 +32,4 @@ Activating Edit to update metadata:
 
 ![Add Comment](https://github.com/bjanos/Screenshots/blob/master/PhotoViewer/2018-04-23%2020_53_48-Photo%20Viewer.png)
 
-P.s.: images are courtesy of <a href="https://www.pexels.com" target="_blank">pixabay</a>
- <a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a> 
+P.s.: images are courtesy of <a href="https://www.pexels.com" target="_blank">pixabay</a> (Ctrl + click - target="_blank" does not work)
