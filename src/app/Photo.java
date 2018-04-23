@@ -1,5 +1,10 @@
 package app;
 
+/**
+ * Photo class for representing a photo object.
+ *
+ * @author Janos Benyovszki
+ */
 public class Photo {
 
     private String title;
@@ -8,7 +13,7 @@ public class Photo {
     private String comment;
 
     public Photo(String title, String imagePath) {
-        this(title, imagePath, new MetaDataProperty("na", "na", "na"), " ");
+        this(title, imagePath, new MetaDataProperty("na", "na", "na"), "");
     }
 
     public Photo(String title, String imagePath, String comment) {
@@ -42,6 +47,9 @@ public class Photo {
         this.metaData = metaData;
     }
 
+    /**
+     * Used for populating the observable photo list.
+     */
     @Override
     public String toString() {
         return title;

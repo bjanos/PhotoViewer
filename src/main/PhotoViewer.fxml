@@ -33,41 +33,44 @@
       <VBox spacing="8.0">
          <children>
             <Label text="%photoHeader" />
-            <ImageView fx:id="photoImageView" fitHeight="346.0" fitWidth="519.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-            <HBox alignment="CENTER_LEFT" spacing="32.0">
+            <ImageView fx:id="photoImageView" fitHeight="346.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
                <children>
                   <HBox alignment="CENTER_LEFT" spacing="8.0">
                      <children>
                         <Label text="%shutterSpeedLabel" />
-                        <TextField fx:id="shutterText" editable="false" prefWidth="50.0" />
+                        <TextField fx:id="shutterText" editable="false" prefColumnCount="5" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="673.0" layoutY="10.0" spacing="8.0">
                      <children>
                         <Label text="%apertureLabel" />
-                        <TextField fx:id="apertureText" editable="false" prefWidth="50.0" />
+                        <TextField fx:id="apertureText" editable="false" maxWidth="1.7976931348623157E308" prefColumnCount="4" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="673.0" layoutY="10.0" spacing="8.0">
                      <children>
                         <Label text="%isoLabel" />
-                        <TextField fx:id="isoText" editable="false" prefWidth="50.0" />
+                        <TextField fx:id="isoText" editable="false" prefColumnCount="4" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="32.0" />
+                           </HBox.margin></TextField>
                      </children>
                   </HBox>
-                  <HBox spacing="18.0">
+                  <HBox spacing="4.0">
                      <children>
-                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editClicked" text="%editMetaButton" />
-                        <Button fx:id="saveButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveClicked" text="%saveMetaButton" visible="false" />
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editClicked" styleClass="editButton" text="%editMetaButton" />
+                        <Button fx:id="saveButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveClicked" styleClass="saveButton" text="%saveMetaButton" visible="false" />
                      </children>
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="381.0">
+            <HBox layoutX="10.0" layoutY="381.0">
                <children>
-                  <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                  <HBox spacing="8.0">
                      <children>
                         <Label maxWidth="1.7976931348623157E308" text="%commentLabel" />
-                        <TextArea fx:id="commentTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" />
+                        <TextArea fx:id="commentTextArea" editable="false" maxHeight="1.7976931348623157E308" prefHeight="80.0" style="-fx-background-color: blue;" />
                      </children>
                   </HBox>
                </children>

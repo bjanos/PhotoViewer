@@ -5,54 +5,73 @@ import app.Photo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
+/**
+ * Photo Viewer Controller.
+ *
+ * @author Janos Benyovszki
+ */
 public class PhotoViewerController {
 
-    @FXML private ImageView photoImageView;
+    @FXML
+    private ImageView photoImageView;
 
-    @FXML private ListView<Photo> photoListView;
+    @FXML
+    private ListView<Photo> photoListView;
 
-    @FXML private TextField shutterText;
+    @FXML
+    private TextField shutterText;
 
-    @FXML private TextField apertureText;
+    @FXML
+    private TextField apertureText;
 
-    @FXML private TextField isoText;
+    @FXML
+    private TextField isoText;
 
-    @FXML private TextArea commentTextArea;
+    @FXML
+    private TextArea commentTextArea;
 
-    @FXML private Button editButton;
+    @FXML
+    private Button editButton;
 
-    @FXML private Button saveButton;
+    @FXML
+    private Button saveButton;
 
     private final ObservableList<Photo> photos = FXCollections.observableArrayList();
 
-    private ArrayList<TextField> editables = new ArrayList<>();
+    private ArrayList<TextInputControl> editables = new ArrayList<>();
 
     private Photo currentSelection;
 
     /**
-     *
-     *
-     * */
+     * Populates the observable list, collects editable controls into
+     * one collection, adds listener to the selected list item.
+     */
     public void initialize() {
         photos.add(new Photo("Valley", "res/image/cliffside.jpeg"));
         photos.add(new Photo("Forest", "res/image/forest.jpeg"));
-        photos.add(new Photo("Meadow", "res/image/meadow.jpeg"));
+        photos.add(new Photo("Meadow", "res/image/meadow.jpeg", "Lush green vegetation"));
         photos.add(new Photo("Mountains", "res/image/mountains.jpeg"));
-        photos.add(new Photo("Sunset", "res/image/sunset.jpeg"));
+        photos.add(new Photo(
+                "Sunset", "res/image/sunset.jpeg",
+                new MetaDataProperty(
+                        "1/16",
+                        "22",
+                        "1600"
+                ),
+                "Peaceful surroundings")
+        );
         photos.add(new Photo("Valley", "res/image/valley.jpeg"));
 
         editables.add(shutterText);
         editables.add(apertureText);
         editables.add(isoText);
+        editables.add(commentTextArea);
 
         photoListView.setItems(photos);
 
@@ -66,50 +85,48 @@ public class PhotoViewerController {
                     isoText.setText(currentMeta.getIso());
                     commentTextArea.setText(currentSelection.getComment());
                     photoImageView.setImage(new Image(currentSelection.getImagePath()));
-
                 })
         );
 
-
-
-        setDefaults();
+        setDefault();
     }
 
-    private void setDefaults() {
+    /**
+     * For initial selection.
+     */
+    private void setDefault() {
         photoListView.getSelectionModel().select(0);
     }
 
     @FXML
     private void editClicked() {
 
-        for (TextField textField: editables) {
+        for (TextInputControl textField : editables) {
             textField.setEditable(true);
         }
 
         saveButton.setVisible(true);
         editButton.setVisible(false);
-
     }
 
     @FXML
     private void saveClicked() {
-        for (TextField textField: editables) {
-            textField.setEditable(false);
+        for (TextInputControl textControl : editables) {
+            textControl.setEditable(false);
         }
 
-        saveComment();
-        saveMetaData();
+        saveData();
 
         saveButton.setVisible(false);
         editButton.setVisible(true);
 
     }
 
-    private void saveMetaData() {
-       currentSelection.setMetaData(new MetaDataProperty(shutterText.getText(), apertureText.getText(), isoText.getText()));
-    }
-
-    private void saveComment() {
+    /**
+     * Saves metadata and comment to the selected object.
+     */
+    private void saveData() {
+        currentSelection.setMetaData(new MetaDataProperty(shutterText.getText(), apertureText.getText(), isoText.getText()));
         currentSelection.setComment(commentTextArea.getText());
     }
 

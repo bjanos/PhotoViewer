@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
+/**
+ * Main app class.
+ *
+ * @author Janos Benyovszki
+ */
 public class Main extends Application {
 
     @Override
@@ -21,7 +26,7 @@ public class Main extends Application {
         primaryStage.setTitle("Photo Viewer");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image("res/image/icon.png"));
+        primaryStage.getIcons().add(new Image("res/icon/icon.png"));
         primaryStage.show();
     }
 

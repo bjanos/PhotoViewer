@@ -1,5 +1,10 @@
 package app;
 
+/**
+ * Part of the photo object.
+ *
+ * @see Photo
+ */
 public class MetaDataProperty {
 
     private String shutterSpeed;

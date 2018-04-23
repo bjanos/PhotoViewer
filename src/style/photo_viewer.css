@@ -1,13 +1,25 @@
 * {
     -fx-font-family: "Lucida Sans Unicode";
-
+    -fx-font-size: 14;
 }
 
 .background {
     -fx-background-color: #2aaaac;
 }
 
-.button {
+.list-view {
+    -fx-background-color: #fff;
+}
+
+.list-cell:selected {
+    -fx-background-color: #2aaaac;
+}
+
+.editButton {
+    -fx-background-color: #6dff62;
+}
+
+.saveButton {
     -fx-background-color: #ff5a49;
 
 }
@@ -20,7 +32,8 @@
     -fx-background-color: #e2e2e2;
 }
 
-.text-area:readonly {
+.text-area:readonly .content {
     -fx-background-color: #e2e2e2;
 }
+
 
