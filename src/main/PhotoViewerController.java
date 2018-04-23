@@ -1,11 +1,13 @@
 package main;
 
+import app.MetaDataProperty;
 import app.Photo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +26,8 @@ public class PhotoViewerController {
 
     @FXML private TextField isoText;
 
+    @FXML private TextArea commentTextArea;
+
     @FXML private Button editButton;
 
     @FXML private Button saveButton;
@@ -32,9 +36,14 @@ public class PhotoViewerController {
 
     private ArrayList<TextField> editables = new ArrayList<>();
 
-    public void initialize() {
+    private Photo currentSelection;
 
-        photos.add(new Photo("Lotus Temple", "res/image/lotus_t.JPG"));
+    /**
+     *
+     *
+     * */
+    public void initialize() {
+        photos.add(new Photo("Lotus Temple", "res/image/lotus_t.JPG", "Macska haverkodik a helyiekkel"));
         photos.add(new Photo("Taj Mahal - Black and White", "res/image/taj_bw.JPG"));
         photos.add(new Photo("Taj Mahal - Close Up", "res/image/taj_close.JPG"));
         photos.add(new Photo("Taj Mahal - Far Away", "res/image/taj_far.JPG"));
@@ -47,8 +56,20 @@ public class PhotoViewerController {
         photoListView.setItems(photos);
 
         photoListView.getSelectionModel().selectedItemProperty().addListener(
-                ((observable, oldValue, newValue) -> photoImageView.setImage(new Image(newValue.getImagePath())))
+                ((observable, oldValue, newValue) -> {
+                    currentSelection = newValue;
+                    var currentMeta = currentSelection.getMetaData();
+
+                    shutterText.setText(currentMeta.getShutterSpeed());
+                    apertureText.setText(currentMeta.getAperture());
+                    isoText.setText(currentMeta.getIso());
+                    commentTextArea.setText(currentSelection.getComment());
+                    photoImageView.setImage(new Image(currentSelection.getImagePath()));
+
+                })
         );
+
+
 
         setDefaults();
     }
@@ -71,14 +92,24 @@ public class PhotoViewerController {
 
     @FXML
     private void saveClicked() {
-
         for (TextField textField: editables) {
             textField.setEditable(false);
         }
 
+        saveComment();
+        saveMetaData();
+
         saveButton.setVisible(false);
         editButton.setVisible(true);
 
+    }
+
+    private void saveMetaData() {
+       currentSelection.setMetaData(new MetaDataProperty(shutterText.getText(), apertureText.getText(), isoText.getText()));
+    }
+
+    private void saveComment() {
+        currentSelection.setComment(commentTextArea.getText());
     }
 
 }

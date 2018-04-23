@@ -6,11 +6,6 @@ public class MetaDataProperty {
     private String aperture;
     private String iso;
 
-
-    public MetaDataProperty(String shutterSpeed, String aperture) {
-        this(shutterSpeed, aperture, "na");
-    }
-
     public MetaDataProperty(String shutterSpeed, String aperture, String ISO) {
         this.shutterSpeed = shutterSpeed;
         this.aperture = aperture;
