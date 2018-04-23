@@ -1,0 +1,26 @@
+* {
+    -fx-font-family: "Lucida Sans Unicode";
+
+}
+
+.background {
+    -fx-background-color: #2aaaac;
+}
+
+.button {
+    -fx-background-color: #ff5a49;
+
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, #3f3f3f, 8, 0.5, 1, 1);
+}
+
+.text-field:readonly {
+    -fx-background-color: #e2e2e2;
+}
+
+.text-area:readonly {
+    -fx-background-color: #e2e2e2;
+}
+

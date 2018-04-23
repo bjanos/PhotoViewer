@@ -43,11 +43,12 @@ public class PhotoViewerController {
      *
      * */
     public void initialize() {
-        photos.add(new Photo("Lotus Temple", "res/image/lotus_t.JPG", "Macska haverkodik a helyiekkel"));
-        photos.add(new Photo("Taj Mahal - Black and White", "res/image/taj_bw.JPG"));
-        photos.add(new Photo("Taj Mahal - Close Up", "res/image/taj_close.JPG"));
-        photos.add(new Photo("Taj Mahal - Far Away", "res/image/taj_far.JPG"));
-        photos.add(new Photo("Taj Mahal - Tilted", "res/image/taj_tilt.JPG"));
+        photos.add(new Photo("Valley", "res/image/cliffside.jpeg"));
+        photos.add(new Photo("Forest", "res/image/forest.jpeg"));
+        photos.add(new Photo("Meadow", "res/image/meadow.jpeg"));
+        photos.add(new Photo("Mountains", "res/image/mountains.jpeg"));
+        photos.add(new Photo("Sunset", "res/image/sunset.jpeg"));
+        photos.add(new Photo("Valley", "res/image/valley.jpeg"));
 
         editables.add(shutterText);
         editables.add(apertureText);
