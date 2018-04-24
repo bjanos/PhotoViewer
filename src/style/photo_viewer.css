@@ -15,14 +15,22 @@
     -fx-background-color: #2aaaac;
 }
 
+.welcomeScreenLabel {
+    -fx-font: 22 bold;
+}
+
+.welcomeButton {
+    -fx-background-color: #0bacaa;
+}
+
 .editButton {
     -fx-background-color: #6dff62;
 }
 
 .saveButton {
     -fx-background-color: #ff5a49;
-
 }
+
 
 .button:hover {
     -fx-effect: dropshadow(gaussian, #3f3f3f, 8, 0.5, 1, 1);

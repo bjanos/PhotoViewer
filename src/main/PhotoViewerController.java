@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,9 @@ import java.util.ArrayList;
  * @author Janos Benyovszki
  */
 public class PhotoViewerController {
+
+    @FXML
+    private VBox landingBackground;
 
     @FXML
     private ImageView photoImageView;
@@ -96,6 +100,11 @@ public class PhotoViewerController {
      */
     private void setDefault() {
         photoListView.getSelectionModel().select(0);
+    }
+
+    @FXML
+    private void enterClicked() {
+        landingBackground.setVisible(false);
     }
 
     @FXML
