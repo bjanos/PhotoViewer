@@ -86,7 +86,7 @@
                   </VBox>
                </center>
             </BorderPane>
-            <VBox alignment="CENTER" spacing="16.0" style="-fx-background-color: white;">
+            <VBox fx:id="landingBackground" alignment="CENTER" spacing="16.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>

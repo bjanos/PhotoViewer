@@ -2,13 +2,18 @@ package main;
 
 import app.MetaDataProperty;
 import app.Photo;
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -104,7 +109,11 @@ public class PhotoViewerController {
 
     @FXML
     private void enterClicked() {
-        landingBackground.setVisible(false);
+        var transition = new FadeTransition(new Duration(1000), landingBackground);
+        transition.setFromValue(1.0);
+        transition.setToValue(0.0);
+        transition.play();
+        transition.setOnFinished((ActionEvent event) -> {landingBackground.setVisible(false);});
     }
 
     @FXML
