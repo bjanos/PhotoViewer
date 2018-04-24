@@ -1,5 +1,6 @@
 package main;
 
+import app.ImageTextCell;
 import app.MetaDataProperty;
 import app.Photo;
 import javafx.animation.Animation;
@@ -13,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -97,6 +99,8 @@ public class PhotoViewerController {
                 })
         );
 
+        photoListView.setCellFactory(param -> new ImageTextCell());
+
         setDefault();
     }
 
@@ -119,8 +123,8 @@ public class PhotoViewerController {
     @FXML
     private void editClicked() {
 
-        for (TextInputControl textField : editables) {
-            textField.setEditable(true);
+        for (TextInputControl textControl : editables) {
+            textControl.setEditable(true);
         }
 
         saveButton.setVisible(true);
