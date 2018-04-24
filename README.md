@@ -22,6 +22,10 @@ can be edited and saved, but only in memory, it is not persistent.
 
 ## Hands On
 
+Photo Viewer Start Page:
+
+![Photo Viewer Start Page](https://github.com/bjanos/Screenshots/blob/master/PhotoViewer/2018-04-24_15-34-57.png)
+
 Photo Viewer Screen:
 
 ![Photo Viewer](https://github.com/bjanos/Screenshots/blob/master/PhotoViewer/2018-04-23%2020_50_51-Photo%20Viewer.png)
